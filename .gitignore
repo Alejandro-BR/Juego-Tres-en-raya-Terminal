@@ -25,3 +25,10 @@ replay_pid*
 
 #PDF
 *.pdf
+
+#Carpetas .vscode
+**/.vscode/
+
+#JSON
+*.json
+
