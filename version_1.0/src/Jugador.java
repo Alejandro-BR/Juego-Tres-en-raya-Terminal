@@ -26,7 +26,7 @@ public class Jugador {
   //////// Metodos
 
   /**
-   * victorias
+   * victorias:
    * 
    * Aumenta el contador de victorias.
    */
@@ -34,11 +34,32 @@ public class Jugador {
     victorias++;
   }
 
+  /**
+   * resetVictorias:
+   * 
+   * Las victorias pasan a ser 0.
+   */
+  public void resetVictorias() {
+    victorias = 0;
+  }
+
+  // Get 
+
   public String getNombre() {
     return nombre;
   }
 
   public int getVictorias() {
     return victorias;
+  }
+
+  public Ficha getFicha() {
+    return ficha;
+  }
+
+  // Set
+
+  public void setFicha(Ficha ficha) {
+    this.ficha = ficha;
   }
 }

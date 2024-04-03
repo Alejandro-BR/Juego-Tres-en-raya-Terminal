@@ -17,7 +17,7 @@ public class Ficha {
   //////// Contructores
 
   /**
-   * Constructor de la clase Ficha
+   * Constructor de la clase Ficha.
    * 
    * @param simbolo String
    */
@@ -26,7 +26,7 @@ public class Ficha {
   }
 
   /**
-   * Contructor simple de la clase Ficha
+   * Contructor simple de la clase Ficha.
    * 
    */
   public Ficha() {
@@ -112,12 +112,10 @@ public class Ficha {
   }
 
   /**
-   * equals de la clase Ficha
+   * equals de la clase Ficha.
    */
   @Override
   public boolean equals(Object obj) {
-    if (this == obj)
-      return true;
     if (obj == null)
       return false;
     if (getClass() != obj.getClass())
