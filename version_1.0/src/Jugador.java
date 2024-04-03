@@ -1,6 +1,8 @@
 /**
  * Jugador
  * 
+ * Clase que representa tanto al jugador humano como a la máquina, almacenando sus respectivos datos.
+ * 
  * @author Alejandro Barrionuevo Rosado
  */
 

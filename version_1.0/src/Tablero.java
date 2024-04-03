@@ -1,6 +1,8 @@
 /**
  * Tablero
  * 
+ * Es una matriz de fichas con una proporción de 3x3.
+ * 
  * @author Alejandro Barrionuevo Rosado
  */
 

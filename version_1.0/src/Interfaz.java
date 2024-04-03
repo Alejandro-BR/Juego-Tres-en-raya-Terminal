@@ -1,7 +1,7 @@
 /**
  * Interfaz 
  * 
- * Esta clase abtrasta constara de metodos staticos que se utilizaran en el main.
+ * Contiene métodos para dar forma a la interfaz del juego.
  * 
  * @author Alejandro Barrionuevo Rosado
  */

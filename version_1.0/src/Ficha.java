@@ -1,6 +1,8 @@
 /**
  * Ficha
  * 
+ * Representa las piezas utilizadas en el juego dentro del tablero.
+ * 
  * @author Alejandro Barrionuevo Rosado
  */
 
