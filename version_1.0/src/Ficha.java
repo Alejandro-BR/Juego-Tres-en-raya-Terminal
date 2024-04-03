@@ -14,7 +14,8 @@ public class Ficha {
   private static ArrayList<String> simbolos = new ArrayList<>(
       Arrays.asList("X", "O", "⚫", "⚪", "🔴", "🟠", "🟡", "🟢", "🔵", "🟣", "🟤", "❌", "⭕"));
 
-  //////// Contructor
+  //////// Contructores
+
   /**
    * Constructor de la clase Ficha
    * 
@@ -22,6 +23,14 @@ public class Ficha {
    */
   public Ficha(String simbolo) {
     this.simbolo = simbolo;
+  }
+
+  /**
+   * Contructor simple de la clase Ficha
+   * 
+   */
+  public Ficha() {
+    simbolo = " ";
   }
 
   //////// Metodos
@@ -92,5 +101,33 @@ public class Ficha {
    */
   public void setSimbolo(String simbolo) {
     this.simbolo = simbolo;
+  }
+
+  /**
+   * toString
+   */
+  @Override
+  public String toString() {
+    return simbolo;
+  }
+
+  /**
+   * equals de la clase Ficha
+   */
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    Ficha other = (Ficha) obj;
+    if (simbolo == null) {
+      if (other.simbolo != null)
+        return false;
+    } else if (!simbolo.equals(other.simbolo))
+      return false;
+    return true;
   }
 }
