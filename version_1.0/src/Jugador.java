@@ -18,11 +18,21 @@ public class Jugador {
    * Contructor de la clase Jugador.
    * 
    * @param nombre String
+   * @param simbolo String
    */
   public Jugador(String nombre, String simbolo) {
     this.nombre = nombre;
     victorias = 0;
     ficha = new Ficha(simbolo);
+  }
+
+  /** 
+   * Contructor basico.
+   * 
+   */
+  public Jugador(){
+    victorias = 0;
+    ficha = new Ficha();
   }
 
   //////// Metodos
