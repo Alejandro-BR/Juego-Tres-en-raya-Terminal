@@ -2,6 +2,7 @@
  * Interfaz
  * 
  * Contiene métodos para dar forma a la interfaz del juego.
+ * (menus, titulos, diseños, etc.)
  * 
  * @author Alejandro Barrionuevo Rosado
  */
@@ -9,7 +10,7 @@
 public abstract class Interfaz {
 
   /**
-   * Borrar la pantalla del terminal
+   * Borrar la pantalla del terminal.
    */
   public static void limpiar() {
     System.out.print("\033[H\033[2J");
@@ -77,6 +78,32 @@ public abstract class Interfaz {
   }
 
   /**
+   * Animacion de salir para el menu
+   * de modificacion de la ficha.
+   * 
+   */
+  public static void salirMenuFicha() {
+    final int REPETICIONES = 5;
+    final int TIEMPO_REPETICION = 100;
+    final int TIEMPO_FINAL = 1000;
+
+    try {
+
+      System.out.print("\n Saliendo ");
+
+      for (int i = 0; i < REPETICIONES; i++) {
+        System.out.print("👾");
+        Thread.sleep(TIEMPO_REPETICION); // Retardo
+      }
+
+      Thread.sleep(TIEMPO_FINAL); // Retardo
+
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+  }
+
+  /**
    * Portada para modificar una ficha.
    */
   public static void modifcarFichaPortada() {
@@ -90,7 +117,7 @@ public abstract class Interfaz {
   /**
    * Dibuja una imagen.
    */
-  private static void BabyYoda() {
+  private static void babyYoda() {
     System.out.println("         __.-._");
     System.out.println("         '-._\"7'");
     System.out.println("          /'.-c");
@@ -99,7 +126,20 @@ public abstract class Interfaz {
   }
 
   /**
-   * Mostrar los creditos
+   * Retardo de los creditos.
+   */
+  private static void retardoCreditos() {
+    final int TIEMPO = 2000;
+
+    try {
+      Thread.sleep(TIEMPO); 
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+  }
+
+  /**
+   * Mostrar los creditos.
    */
   public static void creditos() {
     limpiar();
@@ -111,8 +151,9 @@ public abstract class Interfaz {
     System.out.println("  ║\033[34m           Alejandro Barrionuevo Rosado           \033[0m║");
     System.out.println("  ║\033[34m                                                  \033[0m║");
     System.out.println("  ╚══════════════════════════════════════════════════╝\n\n\n");
-    BabyYoda();
+    babyYoda();
     System.out.println("\n");
+    retardoCreditos();
   }
 
   /**

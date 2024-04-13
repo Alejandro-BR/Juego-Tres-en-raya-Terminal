@@ -40,12 +40,8 @@ public class JuegoTresEnRaya {
           maquina.setFicha(new Ficha(Ficha.obtenerSimbolo(indice)));
           break;
         default: // Salir
-          System.out.println("Saliendo...");
-          try {
-            Thread.sleep(500); // Retardo
-          } catch (InterruptedException e) {
-            e.printStackTrace();
-          }
+          Interfaz.salirMenuFicha();
+          Interfaz.limpiar();
           break;
       }
     } while (menu != 4);
@@ -92,9 +88,9 @@ public class JuegoTresEnRaya {
     Jugador jugador = new Jugador();
     Jugador maquina = new Jugador();
     // Programa
-    Interfaz.limpiar();
-    Interfaz.portada();
     do {
+      Interfaz.limpiar();
+      Interfaz.portada();
       menu = Interfaz.menuInicial();
       switch (menu) {
         case JUGAR:
