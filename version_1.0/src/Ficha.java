@@ -114,6 +114,15 @@ public class Ficha {
   }
 
   /**
+   * Listado de los simbolos.
+   */
+  public static void listadoSimbolos() {
+    for (int i = 0; i < getLongitud(); i++) {
+      System.out.printf("%-3d - %1s \n",(i + 1), simbolos.get(i));
+    }
+  }
+
+  /**
    * equals de la clase Ficha.
    */
   @Override
