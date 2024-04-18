@@ -78,6 +78,37 @@ public abstract class Interfaz {
   }
 
   /**
+   * Introducir un nuevo simbolo
+   * a la lista de la clase Ficha.
+   * 
+   */
+  private static void pedirNuevoSimbolo() {
+    String nuevo = "";
+    do {
+      System.out.print("\nIntroduce el nuevo simbolo: ");
+      nuevo = System.console().readLine();
+    } while (nuevo.length() != 1);
+    Ficha.nuevoSimbolo(nuevo);
+  }
+
+  /**
+   * Pide el indice para asignar un simbolo
+   * a la correspondiente ficha.
+   * 
+   * @return indice int
+   */
+  private static int pedirIndiceS() {
+    int indice = 0;
+    System.out.println("\nIntroduce el indice del simbolo: ");
+    do {
+      System.out.print("Indice: ");
+      indice = Integer.parseInt(System.console().readLine());
+      indice--;
+    } while (indice < 0 || indice > Ficha.getLongitud() - 1);
+    return indice;
+  }
+
+  /**
    * Animacion de salir para el menu
    * de modificacion de la ficha.
    * 
@@ -132,7 +163,7 @@ public abstract class Interfaz {
     final int TIEMPO = 2000;
 
     try {
-      Thread.sleep(TIEMPO); 
+      Thread.sleep(TIEMPO);
     } catch (InterruptedException e) {
       e.printStackTrace();
     }

@@ -29,10 +29,10 @@ public class JuegoTresEnRaya {
       menu = Interfaz.menuModFicha();
       switch (menu) {
         case NUEVO_SIMBOLO: 
-          pedirNuevoSimbolo();
+          Interfaz.pedirNuevoSimbolo();
           break;
         case CAMBIAR_FICHA_JUGADOR: 
-          indice = pedirIndice();
+          indice = Interfaz.pedirIndiceS();
           jugador.setFicha(new Ficha(Ficha.obtenerSimbolo(indice)));
           break;
         case CAMBIAR_FICHA_MAQUINA: 
@@ -45,37 +45,6 @@ public class JuegoTresEnRaya {
           break;
       }
     } while (menu != 4);
-  }
-
-  /**
-   * Introducir un nuevo simbolo
-   * a la lista de la clase Ficha.
-   * 
-   */
-  private static void pedirNuevoSimbolo() {
-    String nuevo = "";
-    do {
-      System.out.print("\nIntroduce el nuevo simbolo: ");
-      nuevo = System.console().readLine();
-    } while (nuevo.length() != 1);
-    Ficha.nuevoSimbolo(nuevo);
-  }
-
-  /**
-   * Pide el indice para asignar un simbolo
-   * a la correspondiente ficha.
-   * 
-   * @return indice int
-   */
-  private static int pedirIndice() {
-    int indice = 0;
-    System.out.println("\nIntroduce el indice del simbolo: ");
-    do {
-      System.out.print("Indice: ");
-      indice = Integer.parseInt(System.console().readLine());
-      indice--;
-    } while (indice < 0 || indice > Ficha.getLongitud() - 1);
-    return indice;
   }
 
   public static void main(String[] args) {
