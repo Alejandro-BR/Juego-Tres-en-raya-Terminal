@@ -47,6 +47,20 @@ public class JuegoTresEnRaya {
     } while (menu != 4);
   }
 
+  /**
+   * Funcion general donde se juega.
+   * 
+   * @param jugador Jugador
+   * @param maquina Jugador
+   */
+  private static void jugar(Jugador jugador, Jugador maquina) {
+    Tablero tablero = new Tablero();
+    
+    Interfaz.portada();
+    tablero.mostrarTablero();
+    Interfaz.salirMenuFicha(); //Para que no se salga del tiron de manera probicional
+  }
+
   public static void main(String[] args) {
     // Variables
     int menu;
@@ -63,6 +77,7 @@ public class JuegoTresEnRaya {
       menu = Interfaz.menuInicial();
       switch (menu) {
         case JUGAR:
+          jugar(jugador, maquina);
           break;
         case MODIFICAR_FICHA:
           modificarFicha(jugador, maquina);
