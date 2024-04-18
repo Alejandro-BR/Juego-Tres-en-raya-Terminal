@@ -36,7 +36,7 @@ public class JuegoTresEnRaya {
           jugador.setFicha(new Ficha(Ficha.obtenerSimbolo(indice)));
           break;
         case CAMBIAR_FICHA_MAQUINA: 
-          indice = pedirIndice();
+          indice = Interfaz.pedirIndiceS();
           maquina.setFicha(new Ficha(Ficha.obtenerSimbolo(indice)));
           break;
         default: // Salir

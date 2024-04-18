@@ -1,13 +1,35 @@
 /**
  * Interfaz
  * 
- * Contiene métodos para dar forma a la interfaz del juego.
- * (menus, titulos, diseños, etc.)
+ * Esta clase proporciona metodos para dar forma a la interfaz, 
+ * facilitando la interaccion entre el programa y el usuario. 
  * 
  * @author Alejandro Barrionuevo Rosado
  */
 
 public abstract class Interfaz {
+
+  //////// Atributos
+
+  private static final String RESET = "\033[0m";  // Text Reset
+  // private static final String BLACK = "\033[0;30m";   // BLACK
+  // private static final String RED = "\033[0;31m";     // RED
+  private static final String GREEN = "\033[0;32m";   // GREEN
+  // private static final String YELLOW = "\033[0;33m";  // YELLOW
+  // private static final String BLUE = "\033[0;34m";    // BLUE
+  // private static final String PURPLE = "\033[0;35m";  // PURPLE
+  private static final String CYAN = "\033[0;36m";    // CYAN
+  // private static final String WHITE = "\033[0;37m";   // WHITE
+  // private static final String BLACK_BACKGROUND = "\033[40m";  // BLACK
+  // private static final String RED_BACKGROUND = "\033[41m";    // RED
+  // private static final String GREEN_BACKGROUND = "\033[42m";  // GREEN
+  // private static final String YELLOW_BACKGROUND = "\033[43m"; // YELLOW
+  // private static final String BLUE_BACKGROUND = "\033[44m";   // BLUE
+  // private static final String PURPLE_BACKGROUND = "\033[45m"; // PURPLE
+  // private static final String CYAN_BACKGROUND = "\033[46m";   // CYAN
+  // private static final String WHITE_BACKGROUND = "\033[47m";  // WHITE
+
+  //////// Metodos
 
   /**
    * Borrar la pantalla del terminal.
@@ -22,9 +44,9 @@ public abstract class Interfaz {
    */
   public static void portada() {
     System.out.println("  ╔══════════════════════════════════════════╗");
-    System.out.println("  ║\033[34m                                          \033[0m║");
-    System.out.println("  ║\033[34m               TRES EN RAYA               \033[0m║");
-    System.out.println("  ║\033[34m                                          \033[0m║");
+    System.out.println("  ║                                          ║");
+    System.out.println("  ║"+  CYAN  +"               TRES EN RAYA               "+  RESET  +"║");
+    System.out.println("  ║                                          ║");
     System.out.println("  ╚══════════════════════════════════════════╝");
   }
 
@@ -82,7 +104,7 @@ public abstract class Interfaz {
    * a la lista de la clase Ficha.
    * 
    */
-  private static void pedirNuevoSimbolo() {
+  public static void pedirNuevoSimbolo() {
     String nuevo = "";
     do {
       System.out.print("\nIntroduce el nuevo simbolo: ");
@@ -97,7 +119,7 @@ public abstract class Interfaz {
    * 
    * @return indice int
    */
-  private static int pedirIndiceS() {
+  public static int pedirIndiceS() {
     int indice = 0;
     System.out.println("\nIntroduce el indice del simbolo: ");
     do {
@@ -120,7 +142,7 @@ public abstract class Interfaz {
 
     try {
 
-      System.out.print("\n Saliendo ");
+      System.out.print("\nSaliendo ");
 
       for (int i = 0; i < REPETICIONES; i++) {
         System.out.print("👾");
@@ -139,9 +161,9 @@ public abstract class Interfaz {
    */
   public static void modifcarFichaPortada() {
     System.out.println("\n  ╔══════════════════════════════════════════════════╗");
-    System.out.println("  ║\033[34m                                                  \033[0m║");
-    System.out.println("  ║\033[34m                Modificar ficha                   \033[0m║");
-    System.out.println("  ║\033[34m                                                  \033[0m║");
+    System.out.println("  ║                                                  ║");
+    System.out.println("  ║"+  CYAN  +"                Modificar ficha                   "+  RESET  +"║");
+    System.out.println("  ║                                                  ║");
     System.out.println("  ╚══════════════════════════════════════════════════╝\n\n");
   }
 
@@ -149,11 +171,13 @@ public abstract class Interfaz {
    * Dibuja una imagen.
    */
   private static void babyYoda() {
+    System.out.println(GREEN);
     System.out.println("         __.-._");
     System.out.println("         '-._\"7'");
     System.out.println("          /'.-c");
     System.out.println("          |  /T");
     System.out.println("         _)_/LI ");
+    System.out.println(RESET);
   }
 
   /**
@@ -176,11 +200,11 @@ public abstract class Interfaz {
     limpiar();
     // Pintamos los creditos
     System.out.println("\n  ╔══════════════════════════════════════════════════╗");
-    System.out.println("  ║\033[34m                                                  \033[0m║");
-    System.out.println("  ║\033[34m                      CREDITOS                    \033[0m║");
-    System.out.println("  ║\033[34m                                                  \033[0m║");
-    System.out.println("  ║\033[34m           Alejandro Barrionuevo Rosado           \033[0m║");
-    System.out.println("  ║\033[34m                                                  \033[0m║");
+    System.out.println("  ║                                                  ║");
+    System.out.println("  ║"+  CYAN  +"                      CREDITOS                    "+  RESET  +"║");
+    System.out.println("  ║                                                  ║");
+    System.out.println("  ║"+  CYAN  +"           Alejandro Barrionuevo Rosado           "+  RESET  +"║");
+    System.out.println("  ║                                                  ║");
     System.out.println("  ╚══════════════════════════════════════════════════╝\n\n\n");
     babyYoda();
     System.out.println("\n");
@@ -193,9 +217,9 @@ public abstract class Interfaz {
   public static void salir() {
     limpiar();
     System.out.println("\n  ╔══════════════════════════════════════════════════╗");
-    System.out.println("  ║\033[31m                                                  \033[0m║");
-    System.out.println("  ║\033[31m                 ¡Gracias por jugar!              \033[0m║");
-    System.out.println("  ║\033[31m                                                  \033[0m║");
+    System.out.println("  ║                                                  ║");
+    System.out.println("  ║"+  CYAN  +"                 ¡Gracias por jugar!              "+  RESET  +"║");
+    System.out.println("  ║                                                  ║");
     System.out.println("  ╚══════════════════════════════════════════════════╝\n\n");
   }
 }
