@@ -60,6 +60,22 @@ public class Tablero {
   }
 
   /**
+   * Comprueba si esta en un hueco
+   * la ficha correspondiente.
+   * 
+   * true --> si esta esa ficha
+   * false --> si no esta esa ficha
+   * 
+   * @param altura int
+   * @param base   int
+   * @param ficha  Ficha
+   * @return boolean
+   */
+  public boolean comprobar(int altura, int base, Ficha ficha) {
+    return fichas[altura][base].equals(ficha);
+  }
+
+  /**
    * Comprobar si el espacio esta libre.
    * 
    * true --> si esta libre
@@ -71,7 +87,30 @@ public class Tablero {
    */
   public boolean espacioLibre(int altura, int base) {
     Ficha fichaAux = new Ficha();
-    return fichas[altura][base].equals(fichaAux);
+    return comprobar(altura, base, fichaAux);
+  }
+
+  /**
+   * Comprobar si el tablero esta lleno.
+   * 
+   * true --> si esta lleno
+   * false --> si hay un hueco libre
+   * 
+   * @return boolean
+   */
+  public boolean lleno() {
+    Ficha fichaAux = new Ficha();
+    boolean lleno = true;
+
+    for (int i = 0; i < fichas.length; i++) {
+      for (int j = 0; j < fichas[i].length; j++) {
+        if (fichas[i][j].equals(fichaAux)) {
+          lleno = false;
+        }
+      }
+    }
+
+    return lleno;
   }
 
   /**
@@ -83,5 +122,11 @@ public class Tablero {
    */
   public void colocarFicha(int altura, int base, Ficha ficha) {
     fichas[altura][base] = ficha;
+  }
+
+  // Getter
+
+  public Ficha[][] getFichas() {
+    return fichas;
   }
 }

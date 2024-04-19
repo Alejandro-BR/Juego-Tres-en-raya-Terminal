@@ -28,14 +28,14 @@ public class JuegoTresEnRaya {
       Interfaz.listadoS();
       menu = Interfaz.menuModFicha();
       switch (menu) {
-        case NUEVO_SIMBOLO: 
+        case NUEVO_SIMBOLO:
           Interfaz.pedirNuevoSimbolo();
           break;
-        case CAMBIAR_FICHA_JUGADOR: 
+        case CAMBIAR_FICHA_JUGADOR:
           indice = Interfaz.pedirIndiceS();
           jugador.setFicha(new Ficha(Ficha.obtenerSimbolo(indice)));
           break;
-        case CAMBIAR_FICHA_MAQUINA: 
+        case CAMBIAR_FICHA_MAQUINA:
           indice = Interfaz.pedirIndiceS();
           maquina.setFicha(new Ficha(Ficha.obtenerSimbolo(indice)));
           break;
@@ -48,6 +48,78 @@ public class JuegoTresEnRaya {
   }
 
   /**
+   * Comprueba si algun jugador gano.
+   * 
+   * true --> si algun jugador gano
+   * false --> si ningun jugador gano
+   * 
+   * @param tablero Tablero
+   * @param jugador Jugador
+   * @param maquina Jugador
+   * @return boolean
+   */
+  private static boolean comprobarVictoria(Tablero tablero, Jugador jugador, Jugador maquina) {
+    Ficha jugadorFicha = jugador.getFicha();
+    Ficha maquinaFicha = maquina.getFicha();
+    boolean victoriaJugador = false;
+    boolean victoriaMaquina = false;
+    boolean finalizaPartida = false;
+
+    // Comprobar filas
+    for (int i = 0; i < 3; i++) {
+      if (tablero.comprobar(i, 0, jugadorFicha) && tablero.comprobar(i, 1, jugadorFicha)
+          && tablero.comprobar(i, 2, jugadorFicha)) {
+        // Jugador humano gana
+        victoriaJugador = true;
+      } else if (tablero.comprobar(i, 0, maquinaFicha) && tablero.comprobar(i, 1, maquinaFicha)
+          && tablero.comprobar(i, 2, maquinaFicha)) {
+        // Máquina gana
+        victoriaMaquina = true;
+      }
+    }
+
+    // Comprobar columnas
+    for (int j = 0; j < 3; j++) {
+      if (tablero.comprobar(0, j, jugadorFicha) && tablero.comprobar(1, j, jugadorFicha)
+          && tablero.comprobar(2, j, jugadorFicha)) {
+        // Jugador humano gana
+        victoriaJugador = true;
+      } else if (tablero.comprobar(0, j, maquinaFicha) && tablero.comprobar(1, j, maquinaFicha)
+          && tablero.comprobar(2, j, maquinaFicha)) {
+        // Máquina gana
+        victoriaMaquina = true;
+      }
+    }
+
+    // Comprobar diagonales
+    if ((tablero.comprobar(0, 0, jugadorFicha) && tablero.comprobar(1, 1, jugadorFicha)
+        && tablero.comprobar(2, 2, jugadorFicha)) ||
+        (tablero.comprobar(0, 2, jugadorFicha) && tablero.comprobar(1, 1, jugadorFicha)
+            && tablero.comprobar(2, 0, jugadorFicha))) {
+      // Jugador humano gana
+      victoriaJugador = true;
+    } else if ((tablero.comprobar(0, 0, maquinaFicha) && tablero.comprobar(1, 1, maquinaFicha)
+        && tablero.comprobar(2, 2, maquinaFicha)) ||
+        (tablero.comprobar(0, 2, maquinaFicha) && tablero.comprobar(1, 1, maquinaFicha)
+            && tablero.comprobar(2, 0, maquinaFicha))) {
+      // Máquina gana
+      victoriaMaquina = true;
+    }
+
+    if (victoriaJugador) {
+      // Jugador gana
+      jugador.victoria();
+      finalizaPartida = true;
+    } else if (victoriaMaquina) {
+      // Maquina gana
+      maquina.victoria();
+      finalizaPartida = true;
+    }
+
+    return finalizaPartida;
+  }
+
+  /**
    * Funcion general donde se juega.
    * 
    * @param jugador Jugador
@@ -57,26 +129,71 @@ public class JuegoTresEnRaya {
     Tablero tablero = new Tablero();
     int altura;
     int base;
+    boolean libre;
+    boolean terminado;
 
     do {
-      //tablero.inicializarTablero(); 
-
-      Interfaz.portada();
-      tablero.mostrarTablero();
-
-      // Pedir la posicion
-      boolean libre = false;
+      tablero.inicializarTablero();
+      terminado = false;
       do {
-        altura = Interfaz.pedirPosicionAltura();
-        base = Interfaz.pedirPosicionBase();
-        libre = tablero.espacioLibre(altura, base);
-        Interfaz.estadoCasilla(libre);
-      } while (!libre);
+        Interfaz.limpiar();
+        Interfaz.portada();
+        Interfaz.marcador(jugador, maquina);
+        tablero.mostrarTablero();
 
-      jugador.ponerFicha(altura, base, tablero);
+        // Jugador
+        libre = false;
+        do {
+          altura = Interfaz.pedirPosicionAltura();
+          base = Interfaz.pedirPosicionBase();
+          libre = tablero.espacioLibre(altura, base);
+          Interfaz.estadoCasilla(libre);
+        } while (!libre);
 
-      Interfaz.salirMenuFicha(); // Probicional
+        jugador.ponerFicha(altura, base, tablero);
 
+        // Mostrar interfaz
+        Interfaz.retrasoPartida();
+        Interfaz.limpiar();
+        Interfaz.portada();
+        tablero.mostrarTablero();
+
+        // Comprobar si el jugador gano
+        boolean maquinaJuega = true;
+        if (comprobarVictoria(tablero, jugador, maquina)) {
+          maquinaJuega = false;
+          terminado = true;
+        }
+
+        // Maquina
+        libre = false;
+        if (!tablero.lleno() && maquinaJuega) {
+          do {
+            altura = (int) (Math.random() * 3);
+            base = (int) (Math.random() * 3);
+            libre = tablero.espacioLibre(altura, base);
+          } while (!libre);
+
+          maquina.ponerFicha(altura, base, tablero);
+        }
+
+        // Comprobar si la maquina gano
+        if (maquinaJuega) {
+          if (comprobarVictoria(tablero, jugador, maquina)) {
+            terminado = true;
+          }
+        }
+
+        /**
+         * Terminar si el tablero esta lleno
+         */
+        if (tablero.lleno()) {
+          terminado = true;
+        }
+
+        // Retardo para fin de partida
+        Interfaz.retrasoPartida();
+      } while (!terminado);
     } while (jugador.getVictorias() != 3 && maquina.getVictorias() != 3);
   }
 

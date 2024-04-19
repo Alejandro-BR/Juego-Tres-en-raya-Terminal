@@ -176,6 +176,7 @@ public abstract class Interfaz {
   public static int pedirPosicionAltura() {
     String aux = " ";
 
+    System.out.println();
     do {
       System.out.print("Introduce la posicion (1-3): ");
       aux = System.console().readLine();
@@ -217,12 +218,39 @@ public abstract class Interfaz {
     return posicion;
   }
 
+  /**
+   * Dependiendo del estado
+   * de la casilla mando un mensaje.
+   * 
+   * @param estado boolean
+   */
   public static void estadoCasilla(boolean estado) {
     if (estado) {
       System.out.println("");
     } else {
       System.out.println("\nEl espacio esta ocupado.\n");
     }
+  }
+
+  /**
+   * Retardo en la partida.
+   */
+  public static void retrasoPartida() {
+    try {
+      Thread.sleep(500); 
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+  }
+
+  /**
+   * Marcador de la partida.
+   * 
+   * @param jugador Jugador
+   * @param maquina Jugador
+   */
+  public static void marcador(Jugador jugador, Jugador maquina) {
+    System.out.println("\nJugador: " + jugador.getVictorias() + " - Maquina " + maquina.getVictorias() + "\n");
   }
 
   /**
