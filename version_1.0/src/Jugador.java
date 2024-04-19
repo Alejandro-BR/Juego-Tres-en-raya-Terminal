@@ -26,6 +26,16 @@ public class Jugador {
     ficha = new Ficha(simbolo);
   }
 
+  /**
+   * Conctuctor generico.
+   * 
+   * @param simbolo String
+   */
+  public Jugador(String simbolo) {
+    victorias = 0;
+    ficha = new Ficha(simbolo);
+  }
+
   /** 
    * Contructor basico.
    * 
@@ -34,6 +44,8 @@ public class Jugador {
     victorias = 0;
     ficha = new Ficha();
   }
+
+  
 
   //////// Metodos
 
@@ -53,6 +65,19 @@ public class Jugador {
    */
   public void resetVictorias() {
     victorias = 0;
+  }
+
+  /**
+   * El jugador introduce una ficha
+   * en el tablero, llama al metodo
+   * colocarFicha del tablero introducido.
+   * 
+   * @param altura int
+   * @param base int
+   * @param tablero Tablero
+   */
+  public void ponerFicha(int altura, int base, Tablero tablero) {
+    tablero.colocarFicha(altura, base, this.ficha);
   }
 
   // Get 

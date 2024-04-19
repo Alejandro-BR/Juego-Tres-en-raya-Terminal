@@ -55,10 +55,29 @@ public class JuegoTresEnRaya {
    */
   private static void jugar(Jugador jugador, Jugador maquina) {
     Tablero tablero = new Tablero();
-    
-    Interfaz.portada();
-    tablero.mostrarTablero();
-    Interfaz.salirMenuFicha(); //Para que no se salga del tiron de manera probicional
+    int altura;
+    int base;
+
+    do {
+      //tablero.inicializarTablero(); 
+
+      Interfaz.portada();
+      tablero.mostrarTablero();
+
+      // Pedir la posicion
+      boolean libre = false;
+      do {
+        altura = Interfaz.pedirPosicionAltura();
+        base = Interfaz.pedirPosicionBase();
+        libre = tablero.espacioLibre(altura, base);
+        Interfaz.estadoCasilla(libre);
+      } while (!libre);
+
+      jugador.ponerFicha(altura, base, tablero);
+
+      Interfaz.salirMenuFicha(); // Probicional
+
+    } while (jugador.getVictorias() != 3 && maquina.getVictorias() != 3);
   }
 
   public static void main(String[] args) {
@@ -68,8 +87,8 @@ public class JuegoTresEnRaya {
     final int MODIFICAR_FICHA = 2;
     final int CREDITOS = 3;
     // Jugadores
-    Jugador jugador = new Jugador();
-    Jugador maquina = new Jugador();
+    Jugador jugador = new Jugador("O");
+    Jugador maquina = new Jugador("Maquina", "X");
     // Programa
     do {
       Interfaz.limpiar();

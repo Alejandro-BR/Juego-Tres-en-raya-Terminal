@@ -1,8 +1,8 @@
 /**
  * Interfaz
  * 
- * Esta clase proporciona metodos para dar forma a la interfaz, 
- * facilitando la interaccion entre el programa y el usuario. 
+ * Esta clase proporciona metodos para dar forma a la interfaz,
+ * facilitando la interaccion entre el programa y el usuario.
  * 
  * @author Alejandro Barrionuevo Rosado
  */
@@ -11,23 +11,23 @@ public abstract class Interfaz {
 
   //////// Atributos
 
-  private static final String RESET = "\033[0m";  // Text Reset
-  // private static final String BLACK = "\033[0;30m";   // BLACK
-  // private static final String RED = "\033[0;31m";     // RED
-  private static final String GREEN = "\033[0;32m";   // GREEN
-  // private static final String YELLOW = "\033[0;33m";  // YELLOW
-  // private static final String BLUE = "\033[0;34m";    // BLUE
-  // private static final String PURPLE = "\033[0;35m";  // PURPLE
-  private static final String CYAN = "\033[0;36m";    // CYAN
-  // private static final String WHITE = "\033[0;37m";   // WHITE
-  // private static final String BLACK_BACKGROUND = "\033[40m";  // BLACK
-  // private static final String RED_BACKGROUND = "\033[41m";    // RED
-  // private static final String GREEN_BACKGROUND = "\033[42m";  // GREEN
+  private static final String RESET = "\033[0m"; // Text Reset
+  // private static final String BLACK = "\033[0;30m"; // BLACK
+  // private static final String RED = "\033[0;31m"; // RED
+  private static final String GREEN = "\033[0;32m"; // GREEN
+  // private static final String YELLOW = "\033[0;33m"; // YELLOW
+  // private static final String BLUE = "\033[0;34m"; // BLUE
+  // private static final String PURPLE = "\033[0;35m"; // PURPLE
+  private static final String CYAN = "\033[0;36m"; // CYAN
+  // private static final String WHITE = "\033[0;37m"; // WHITE
+  // private static final String BLACK_BACKGROUND = "\033[40m"; // BLACK
+  // private static final String RED_BACKGROUND = "\033[41m"; // RED
+  // private static final String GREEN_BACKGROUND = "\033[42m"; // GREEN
   // private static final String YELLOW_BACKGROUND = "\033[43m"; // YELLOW
-  // private static final String BLUE_BACKGROUND = "\033[44m";   // BLUE
+  // private static final String BLUE_BACKGROUND = "\033[44m"; // BLUE
   // private static final String PURPLE_BACKGROUND = "\033[45m"; // PURPLE
-  // private static final String CYAN_BACKGROUND = "\033[46m";   // CYAN
-  // private static final String WHITE_BACKGROUND = "\033[47m";  // WHITE
+  // private static final String CYAN_BACKGROUND = "\033[46m"; // CYAN
+  // private static final String WHITE_BACKGROUND = "\033[47m"; // WHITE
 
   //////// Metodos
 
@@ -45,7 +45,7 @@ public abstract class Interfaz {
   public static void portada() {
     System.out.println("  ╔══════════════════════════════════════════╗");
     System.out.println("  ║                                          ║");
-    System.out.println("  ║"+  CYAN  +"               TRES EN RAYA               "+  RESET  +"║");
+    System.out.println("  ║" + CYAN + "               TRES EN RAYA               " + RESET + "║");
     System.out.println("  ║                                          ║");
     System.out.println("  ╚══════════════════════════════════════════╝");
   }
@@ -162,9 +162,67 @@ public abstract class Interfaz {
   public static void modifcarFichaPortada() {
     System.out.println("\n  ╔══════════════════════════════════════════════════╗");
     System.out.println("  ║                                                  ║");
-    System.out.println("  ║"+  CYAN  +"                Modificar ficha                   "+  RESET  +"║");
+    System.out.println("  ║" + CYAN + "                Modificar ficha                   " + RESET + "║");
     System.out.println("  ║                                                  ║");
     System.out.println("  ╚══════════════════════════════════════════════════╝\n\n");
+  }
+
+  /**
+   * Posicion de la altura
+   * de la ficha en el tablero.
+   * 
+   * @return int posicion
+   */
+  public static int pedirPosicionAltura() {
+    String aux = " ";
+
+    do {
+      System.out.print("Introduce la posicion (1-3): ");
+      aux = System.console().readLine();
+    } while (!aux.equals("1") && !aux.equals("2") && !aux.equals("3"));
+
+    int posicion = Integer.parseInt(aux);
+    posicion--;
+
+    return posicion;
+  }
+
+  /**
+   * Posicion de la base
+   * de la ficha en el tablero.
+   * 
+   * @return int posicion
+   */
+  public static int pedirPosicionBase() {
+    String aux = " ";
+    int posicion = 0;
+
+    do {
+      System.out.print("Introduce la posicion (A-C): ");
+      aux = System.console().readLine();
+    } while (!aux.equals("A") && !aux.equals("B") && !aux.equals("C"));
+
+    switch (aux) {
+      case "A":
+        posicion = 0;
+        break;
+      case "B":
+        posicion = 1;
+        break;
+      case "C":
+        posicion = 2;
+        break;
+    }
+
+    return posicion;
+  }
+
+  public static void estadoCasilla(boolean estado) {
+    if (estado) {
+      System.out.println("");
+    } else {
+      System.out.println("\nEl espacio esta ocupado.\n");
+    }
   }
 
   /**
@@ -201,9 +259,9 @@ public abstract class Interfaz {
     // Pintamos los creditos
     System.out.println("\n  ╔══════════════════════════════════════════════════╗");
     System.out.println("  ║                                                  ║");
-    System.out.println("  ║"+  CYAN  +"                      CREDITOS                    "+  RESET  +"║");
+    System.out.println("  ║" + CYAN + "                      CREDITOS                    " + RESET + "║");
     System.out.println("  ║                                                  ║");
-    System.out.println("  ║"+  CYAN  +"           Alejandro Barrionuevo Rosado           "+  RESET  +"║");
+    System.out.println("  ║" + CYAN + "           Alejandro Barrionuevo Rosado           " + RESET + "║");
     System.out.println("  ║                                                  ║");
     System.out.println("  ╚══════════════════════════════════════════════════╝\n\n\n");
     babyYoda();
@@ -218,7 +276,7 @@ public abstract class Interfaz {
     limpiar();
     System.out.println("\n  ╔══════════════════════════════════════════════════╗");
     System.out.println("  ║                                                  ║");
-    System.out.println("  ║"+  CYAN  +"                 ¡Gracias por jugar!              "+  RESET  +"║");
+    System.out.println("  ║" + CYAN + "                 ¡Gracias por jugar!              " + RESET + "║");
     System.out.println("  ║                                                  ║");
     System.out.println("  ╚══════════════════════════════════════════════════╝\n\n");
   }

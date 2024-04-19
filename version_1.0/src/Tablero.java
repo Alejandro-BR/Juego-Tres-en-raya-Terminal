@@ -48,7 +48,7 @@ public class Tablero {
   /**
    * inicializarTablero
    * 
-   * Inicializa el tablero dandole valor 
+   * Inicializa el tablero dandole valor
    * a todas las fichas.
    */
   public void inicializarTablero() {
@@ -57,5 +57,31 @@ public class Tablero {
         fichas[i][j] = new Ficha();
       }
     }
+  }
+
+  /**
+   * Comprobar si el espacio esta libre.
+   * 
+   * true --> si esta libre
+   * false --> si no esta libre
+   * 
+   * @param altura int
+   * @param base   int
+   * @return boolean
+   */
+  public boolean espacioLibre(int altura, int base) {
+    Ficha fichaAux = new Ficha();
+    return fichas[altura][base].equals(fichaAux);
+  }
+
+  /**
+   * Sustituir el hueco por la ficha.
+   * 
+   * @param altura int
+   * @param base   int
+   * @param ficha  Ficha
+   */
+  public void colocarFicha(int altura, int base, Ficha ficha) {
+    fichas[altura][base] = ficha;
   }
 }
