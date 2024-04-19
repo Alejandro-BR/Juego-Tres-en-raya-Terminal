@@ -136,9 +136,7 @@ public class JuegoTresEnRaya {
       tablero.inicializarTablero();
       terminado = false;
       do {
-        Interfaz.limpiar();
-        Interfaz.portada();
-        Interfaz.marcador(jugador, maquina);
+        Interfaz.partida(jugador, maquina);
         tablero.mostrarTablero();
 
         // Jugador
@@ -154,8 +152,7 @@ public class JuegoTresEnRaya {
 
         // Mostrar interfaz
         Interfaz.retrasoPartida();
-        Interfaz.limpiar();
-        Interfaz.portada();
+        Interfaz.partida(jugador, maquina);
         tablero.mostrarTablero();
 
         // Comprobar si el jugador gano

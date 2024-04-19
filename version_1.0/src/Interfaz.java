@@ -254,6 +254,23 @@ public abstract class Interfaz {
   }
 
   /**
+   * Llamada de los metodos 
+   * en cada partida.
+   * 
+   * limpiar()
+   * portada()
+   * marcador(jugador, maquina)
+   * 
+   * @param jugador Jugador
+   * @param maquina Jugador
+   */
+  public static void partida(Jugador jugador, Jugador maquina) {
+    limpiar();
+    portada();
+    marcador(jugador, maquina);
+  }
+
+  /**
    * Dibuja una imagen.
    */
   private static void babyYoda() {
