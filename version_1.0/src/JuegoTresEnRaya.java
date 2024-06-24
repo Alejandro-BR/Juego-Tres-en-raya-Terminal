@@ -131,6 +131,7 @@ public class JuegoTresEnRaya {
     int base;
     boolean libre;
     boolean terminado;
+    final int LIMITE = 3;
 
     do {
       tablero.inicializarTablero();
@@ -166,8 +167,8 @@ public class JuegoTresEnRaya {
         libre = false;
         if (!tablero.lleno() && maquinaJuega) {
           do {
-            altura = (int) (Math.random() * 3);
-            base = (int) (Math.random() * 3);
+            altura = (int) (Math.random() * LIMITE);
+            base = (int) (Math.random() * LIMITE);
             libre = tablero.espacioLibre(altura, base);
           } while (!libre);
 
@@ -191,7 +192,15 @@ public class JuegoTresEnRaya {
         // Retardo para fin de partida
         Interfaz.retrasoPartida();
       } while (!terminado);
-    } while (jugador.getVictorias() != 3 && maquina.getVictorias() != 3);
+    } while (jugador.getVictorias() != LIMITE && maquina.getVictorias() != LIMITE);
+
+    if (jugador.getVictorias() == LIMITE) {
+      Interfaz.victoriaJugador();
+    } else {
+      Interfaz.victoriaMaquina();
+    }
+
+    Interfaz.retrasoPartidaX2();
   }
 
   public static void main(String[] args) {
