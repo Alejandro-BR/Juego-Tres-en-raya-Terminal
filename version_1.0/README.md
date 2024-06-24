@@ -33,7 +33,7 @@ En Linux, primero asegúrate de dar permisos de ejecución al script TresEnRaya.
 
 ```c
 
-chmod +x iniciar_juego.sh
+chmod +x TresEnRaya.sh
 
 ```
 
@@ -41,6 +41,6 @@ Después, puedes ejecutar el juego fácilmente desde la terminal:
 
 ```c
 
-./iniciar_juego.sh
+./TresEnRayao.sh
 
 ```
