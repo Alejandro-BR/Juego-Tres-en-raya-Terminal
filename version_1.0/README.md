@@ -17,6 +17,8 @@ Esta versión del juego presenta una implementación básica del juego Tres en R
 
 - **Interfaz :** Contiene métodos para dar forma a la interfaz del juego.
 
+- **Color :** Contiene atributos para dar color a la interfaz del juego.
+
 - **JuegoTresEnRaya :** Este es el método principal donde se ejecutará el programa.
 
 ## Instrucciones de Ejecución
