@@ -19,3 +19,28 @@ Esta versión del juego presenta una implementación básica del juego Tres en R
 
 - **JuegoTresEnRaya :** Este es el método principal donde se ejecutará el programa.
 
+## Instrucciones de Ejecución
+
+Este proyecto está desarrollado en Java 21 y puede ejecutarse en sistemas Windows y Linux.
+
+**Windows:**
+
+Puedes ejecutar el juego utilizando el script TresEnRaya.bat. Además, en el directorio 'scripts' encontrarás otro script llamado CrearAccesoDirecto.bat que te permite crear un acceso directo en el escritorio con un icono para el script mencionado anteriormente.
+
+**Linux:**
+
+En Linux, primero asegúrate de dar permisos de ejecución al script TresEnRaya.sh:
+
+```c
+
+chmod +x iniciar_juego.sh
+
+```
+
+Después, puedes ejecutar el juego fácilmente desde la terminal:
+
+```c
+
+./iniciar_juego.sh
+
+```
