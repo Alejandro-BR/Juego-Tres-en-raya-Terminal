@@ -7,6 +7,7 @@
 
 Esta versión del juego presenta una implementación básica del juego Tres en Raya en una interfaz de terminal.
 
+
 ## Clases:
 
 - **Ficha :**  Representa las piezas utilizadas en el juego dentro del tablero.
@@ -20,6 +21,8 @@ Esta versión del juego presenta una implementación básica del juego Tres en R
 - **Color :** Contiene atributos para dar color a la interfaz del juego.
 
 - **JuegoTresEnRaya :** Este es el método principal donde se ejecutará el programa.
+
+<br>
 
 ## Instrucciones de Ejecución
 
@@ -46,3 +49,29 @@ Después, puedes ejecutar el juego fácilmente desde la terminal:
 ./TresEnRayao.sh
 
 ```
+
+<br>
+
+## Tecnologías
+
+<br>
+
+
+- Java 21 &nbsp; <a href="https://www.java.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/></a>
+
+- Shell 
+
+- Batchfile
+
+<br>
+
+## Créditos
+
+<br>
+
+Este proyecto fue creado por [Alejandro Barrionuevo Rosado](https://github.com/Alejandro-BR).
+
+
+
+
+
