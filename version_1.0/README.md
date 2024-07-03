@@ -52,9 +52,37 @@ Después, puedes ejecutar el juego fácilmente desde la terminal:
 
 <br>
 
-## Tecnologías
+## Estructura del Proyecto:
 
 <br>
+
+```d
+
+version_1.0:
+|
+│   README.md
+│   TresEnRaya.bat
+│   TresEnRaya.sh
+│
+├───icon
+│       icono.ico
+│
+├───scripts
+│       CrearAccesoDirecto.bat
+│
+└───src
+        Color.java
+        Ficha.java
+        Interfaz.java
+        JuegoTresEnRaya.java
+        Jugador.java
+        Tablero.java
+
+```
+
+<br>
+
+## Tecnologías
 
 
 - Java 21 &nbsp; <a href="https://www.java.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/></a>
@@ -70,8 +98,6 @@ Después, puedes ejecutar el juego fácilmente desde la terminal:
 <br>
 
 Este proyecto fue creado por [Alejandro Barrionuevo Rosado](https://github.com/Alejandro-BR).
-
-
 
 
 
