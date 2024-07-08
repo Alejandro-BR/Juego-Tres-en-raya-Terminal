@@ -2,9 +2,6 @@
 
 <br>
 
-**Alejandro Barrionuevo Rosado**
-<br> 
-
 Esta versión del juego presenta una implementación básica del juego Tres en Raya en una interfaz de terminal.
 
 
