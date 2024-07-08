@@ -27,7 +27,7 @@ Este proyecto está desarrollado en Java 21 y puede ejecutarse en sistemas Windo
 
 **Windows:**
 
-Puedes ejecutar el juego utilizando el script TresEnRaya.bat. Además, en el directorio 'scripts' encontrarás otro script llamado CrearAccesoDirecto.bat que te permite crear un acceso directo en el escritorio con un icono para el script mencionado anteriormente.
+Para jugar al juego, puedes ejecutarlo utilizando el script TresEnRaya.bat. Además, en el directorio 'scripts', encontrarás otro script llamado CrearAccesoDirecto.bat. Este script te permite crear un acceso directo en el escritorio con un icono para el script mencionado anteriormente. Ten en cuenta que esto solo funcionará si mueves el script al directorio principal de esta versión.
 
 **Linux:**
 
