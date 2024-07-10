@@ -88,6 +88,32 @@ version_1.0:
 
 <br>
 
+## Previsualización
+
+<br>
+
+**Menu**
+
+![](/version_1.0/doc/Menu.png)
+
+**Jugar**
+
+![](/version_1.0/doc/Jugar.png)
+
+**Modificar las fichas**
+
+![](/version_1.0/doc/Ficha.png)
+
+**Créditos**
+
+![](/version_1.0/doc/Creditos.png)
+
+**Salir del juego**
+
+![](/version_1.0/doc/Salir.png)
+
+<br>
+
 ## Créditos
 
 <br>
