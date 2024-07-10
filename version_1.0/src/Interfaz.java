@@ -60,7 +60,7 @@ public abstract class Interfaz extends Color{
     System.out.println("\nMenu:");
     System.out.println("1 - Añadir nueva");
     System.out.println("2 - Modificar ficha del jugador");
-    System.out.println("3 - Modificar ficha la maquina");
+    System.out.println("3 - Modificar ficha de la maquina");
     System.out.println("4 - Salir");
     do {
       System.out.print("\nOpcion: ");
