@@ -209,9 +209,11 @@ public class JuegoTresEnRaya {
     final int JUGAR = 1;
     final int MODIFICAR_FICHA = 2;
     final int CREDITOS = 3;
+    final int FICHA_X = 0;
+    final int FICHA_O = 1;
     // Jugadores
-    Jugador jugador = new Jugador("O");
-    Jugador maquina = new Jugador("Maquina", "X");
+    Jugador jugador = new Jugador(Ficha.getSimbolos().get(FICHA_X));
+    Jugador maquina = new Jugador("Maquina", Ficha.getSimbolos().get(FICHA_O));
     // Programa
     do {
       Interfaz.limpiar();
