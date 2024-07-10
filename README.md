@@ -1,4 +1,4 @@
-# Juego Tres en raya  -  version 1.0
+# Juego Tres en raya
 
 <br>
 
