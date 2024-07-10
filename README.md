@@ -54,11 +54,15 @@ Después, puedes ejecutar el juego fácilmente desde la terminal:
 
 ```d
 
-version_1.0:
+JUEGO_TRES_EN_RAYA:
 |
 │   README.md
+|   .gitignore
 │   TresEnRaya.bat
 │   TresEnRaya.sh
+│
+├───img
+│       Imagenes del Readme
 │
 ├───icon
 │       icono.ico
@@ -66,13 +70,13 @@ version_1.0:
 ├───scripts
 │       CrearAccesoDirecto.bat
 │
-└───src
-        Color.java
-        Ficha.java
-        Interfaz.java
-        JuegoTresEnRaya.java
-        Jugador.java
-        Tablero.java
+├───src
+|       Color.java
+|       Ficha.java
+|       Interfaz.java
+|       JuegoTresEnRaya.java
+|       Jugador.java
+|       Tablero.java
 
 ```
 
@@ -94,23 +98,23 @@ version_1.0:
 
 **Menu**
 
-![](/version_1.0/doc/Menu.png)
+![](/img/Menu.png)
 
 **Jugar**
 
-![](/version_1.0/doc/Jugar.png)
+![](/img/Jugar.png)
 
 **Modificar las fichas**
 
-![](/version_1.0/doc/Ficha.png)
+![](/img/Ficha.png)
 
 **Créditos**
 
-![](/version_1.0/doc/Creditos.png)
+![](/img/Creditos.png)
 
 **Salir del juego**
 
-![](/version_1.0/doc/Salir.png)
+![](/img/Salir.png)
 
 <br>
 
